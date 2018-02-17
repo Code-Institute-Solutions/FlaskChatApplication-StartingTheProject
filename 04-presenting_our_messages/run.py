@@ -11,7 +11,7 @@ def add_messages(username, message):
 
 
 def get_all_messages():
-    """Get al of the messages and separate them by a `br`"""
+    """Get all of the messages and separate them by a `br`"""
     return "<br>".join(messages)
 
 
@@ -31,6 +31,7 @@ def user(username):
 def send_message(username, message):
     """Create a new message and redirect back to the chat page"""
     add_messages(username, message)
-    return redirect(username)
+    return redirect(url_for('user', username=username))
+
 
 app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
